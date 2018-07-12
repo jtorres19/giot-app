@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_barcode"
+        android:enabled="true"
+        android:icon="@drawable/barcode"
+        android:title="@string/tabBarcode"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_bluetooth"
+        android:enabled="true"
+        android:icon="@drawable/bluetooth"
+        android:title="@string/tabBluetooth"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_profile"
+        android:enabled="true"
+        android:icon="@drawable/profile"
+        android:title="@string/tabProfile"
+        app:showAsAction="ifRoom" />
+
+</menu>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item android:title="@string/menuProfile">
+            <menu>
+                <item
+                    android:id="@+id/menu_account"
+                    android:title="@string/menuAccount"
+                    android:icon="@drawable/profile"/>
+                <item
+                    android:id="@+id/menu_historic"
+                    android:title="@string/menuHistoric"
+                    android:icon="@drawable/historic"/>
+            </menu>
+        </item>
+    </group>
+
+        <item
+            android:id="@+id/menu_bluetooth"
+            android:title="@string/menuBluetooth"
+            android:icon="@drawable/bluetooth"/>
+        <item
+            android:id="@+id/menu_barcode"
+            android:title="@string/menuBarcode"
+            android:icon="@drawable/barcode"/>
+        <item
+            android:id="@+id/menu_about"
+            android:title="@string/menuAbout"
+            android:icon="@drawable/about"/>
+        <item
+            android:id="@+id/menu_logout"
+            android:title="@string/menuLogout"
+            android:icon="@drawable/logout"/>
+
+</menu>

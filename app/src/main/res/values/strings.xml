@@ -1,0 +1,35 @@
+<resources>
+
+    <string name="app_name">Giot</string>
+    <string name="tabBluetooth">Vincular</string>
+    <string name="tabBarcode">Escanear QR</string>
+    <string name="tabProfile">Mi Perfil</string>
+    <string name="menuProfile">Mi Perfil</string>
+    <string name="menuBarcode">Escanear QR</string>
+    <string name="menuBluetooth">Vincular Dispositivo</string>
+    <string name="menuHistoric">Mi Registro</string>
+    <string name="menuAccount">Mi Cuenta</string>
+    <string name="menuAbout">Acerca de GIOT</string>
+    <string name="menuLogout">Cerrar Sesión</string>
+    <string name="hintTxtName">Ingrese Nombre</string>
+    <string name="hintTxtSurname">Ingrese Apellido</string>
+    <string name="hintTxtUsername">Ingrese Usuario</string>
+    <string name="hintTxtEmail">Ingrese E-mail</string>
+    <string name="hintTxtLogin">Ingrese Usuario o E-mail</string>
+    <string name="hintTxtPassword">Ingrese Contraseña</string>
+    <string name="hintTxtConfirmPassword">Confirme Contraseña</string>
+    <string name="btnTxtLogin">Ingresar</string>
+    <string name="btnTxtRegister">Registrar</string>
+    <string name="btnTxtCancel">Cancelar</string>
+    <string name="btnTxtScan">Escanear</string>
+    <string name="btnTxtDisconnect">Desconectar</string>
+    <string name="lblListDevices">Lista de dispositivos</string>
+    <string name="lblRegister">¿Aún no eres parte de GIOT?</string>
+    <string name="lblGoToRegister">Regístrate Aquí</string>
+    <string name="openDrawer">Abrir Menú</string>
+    <string name="closeDrawer">Cerrar Menú</string>
+    <string name="no_vision_libraries">No están cargadas las librerías de Google Vision aún, pruebe en instantes</string>
+    <string name="no_space_to_scan">El dispositivo no tiene suficiente espacio para descargar las librerías de Google Vision</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.BluetoothFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/lblTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/lblListDevices" />
+
+        <ListView
+            android:id="@+id/lstDevices"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/viewButtons"
+            android:layout_below="@id/lblTitle">
+
+        </ListView>
+
+        <LinearLayout
+            android:id="@+id/viewButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnScan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:text="@string/btnTxtScan" />
+
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnDisconnect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorRed"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:text="@string/btnTxtDisconnect" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
