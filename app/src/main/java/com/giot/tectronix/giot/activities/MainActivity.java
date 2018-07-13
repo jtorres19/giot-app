@@ -1,5 +1,6 @@
 package com.giot.tectronix.giot.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private Toolbar toolbar;
     private BottomNavigationView bottomNavigationView;
-    private int contador = 0;
+    private int cont = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,14 +65,20 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.menu_barcode:
+                        navigationView.setCheckedItem(menuItem.getItemId());
+                        bottomNavigationView.setSelectedItemId(menuItem.getItemId());
                         cambiarFragment(new BarcodeFragment(),menuItem.getTitle().toString());
                         break;
 
                     case R.id.menu_bluetooth:
+                        navigationView.setCheckedItem(menuItem.getItemId());
+                        bottomNavigationView.setSelectedItemId(menuItem.getItemId());
                         cambiarFragment(new BluetoothFragment(),menuItem.getTitle().toString());
                         break;
 
                     case R.id.menu_account:
+                        navigationView.setCheckedItem(menuItem.getItemId());
+                        bottomNavigationView.setSelectedItemId(menuItem.getItemId());
                         cambiarFragment(new ProfileFragment(),menuItem.getTitle().toString());
                         break;
 
@@ -133,11 +140,17 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
-        }else if (contador == 0){
+        }else if (cont == 0){
             Toast.makeText(getApplicationContext(),"Presione de nuevo para salir",Snackbar.LENGTH_LONG).show();
-            contador++;
+            cont++;
         }else {
             //super.onBackPressed();
+
+            //option 3
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
 
 
@@ -150,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                contador = 0;
+                cont = 0;
             }
         }.start();
 
