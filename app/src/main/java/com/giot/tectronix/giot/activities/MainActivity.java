@@ -1,18 +1,16 @@
 package com.giot.tectronix.giot.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -22,19 +20,21 @@ import com.giot.tectronix.giot.fragments.BarcodeFragment;
 import com.giot.tectronix.giot.fragments.BluetoothFragment;
 import com.giot.tectronix.giot.fragments.ProfileFragment;
 
-import java.util.Objects;
-
 public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_INTENT_USERNAME = "username";
     public final static String EXTRA_INTENT_EMAIL = "email";
 
     private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private Toolbar toolbar;
+    private BottomNavigationView bottomNavigationView;
+    private int contador = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.navigation_drawer);
 
         /*Intent i = getIntent();
         String username = i.getExtras().getString(EXTRA_INTENT_USERNAME);
@@ -43,68 +43,57 @@ public class MainActivity extends AppCompatActivity {
         AppCompatTextView lblUser = findViewById(R.id.lblUser);
         AppCompatTextView lblEmail = findViewById(R.id.lblEmail);*/
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_reorder_black_24dp);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         drawerLayout = findViewById(R.id.drawer_layout);
-        NavigationView navView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.navigation_view);
+        bottomNavigationView = findViewById(R.id.tab_bottom);
+
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout, toolbar,R.string.openDrawer,R.string.closeDrawer);
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
 
         /*Toast.makeText(this,username + " " + email, Toast.LENGTH_LONG).show();*/
 
         /*lblUser.setText(username);
         lblEmail.setText(email);*/
 
-        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.menu_barcode:
                         cambiarFragment(new BarcodeFragment(),menuItem.getTitle().toString());
-                        menuItem.setChecked(true);
-                        //bottomNavigationView.setSelectedItemId(menuItem.getItemId());
                         break;
 
                     case R.id.menu_bluetooth:
                         cambiarFragment(new BluetoothFragment(),menuItem.getTitle().toString());
-                        menuItem.setChecked(true);
-                        //bottomNavigationView.setSelectedItemId(menuItem.getItemId());
                         break;
 
                     case R.id.menu_account:
                         cambiarFragment(new ProfileFragment(),menuItem.getTitle().toString());
-                        menuItem.setChecked(true);
-                        //bottomNavigationView.setSelectedItemId(menuItem.getItemId());
                         break;
 
                     case R.id.menu_historic:
 
-                        //bottomNavigationView.setSelectedItemId(menuItem.getItemId());
                         break;
 
                     case  R.id.menu_about:
 
-                        //bottomNavigationView.setSelectedItemId(menuItem.getItemId());
                         break;
 
                     case R.id.menu_logout:
                         finish();
                 }
 
-                //drawerLayout.closeDrawer(GravityCompat.START);
-                drawerLayout.closeDrawers();
+                drawerLayout.closeDrawer(GravityCompat.START);
 
                 return true;
             }
         });
 
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout, toolbar,R.string.openDrawer,R.string.closeDrawer);
-        drawerLayout.setDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-
-        /*bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
@@ -121,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
             }
-        });*/
+        });
     }
 
     @Override
@@ -139,13 +128,33 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(title);
     }
 
+
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
-        }else{
-            super.onBackPressed();
+        }else if (contador == 0){
+            Toast.makeText(getApplicationContext(),"Presione de nuevo para salir",Snackbar.LENGTH_LONG).show();
+            contador++;
+        }else {
+            //super.onBackPressed();
         }
+
+
+        new CountDownTimer(3000,1000){
+
+            @Override
+            public void onTick(long l) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                contador = 0;
+            }
+        }.start();
+
+
     }
 
 

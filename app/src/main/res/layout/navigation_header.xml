@@ -1,18 +1,24 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="160dp"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="bottom"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:background="@drawable/header">
 
     <android.support.v7.widget.AppCompatImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/header"
-        android:scaleType="centerCrop" />
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/profile"
+        android:scaleType="centerCrop"
+        android:tint="@color/colorWhite"/>
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/lblUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Juan Torres"
         android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
         android:textStyle="bold"
         android:layout_gravity="bottom"
@@ -23,10 +29,9 @@
         android:id="@+id/lblEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Juan Torres"
         android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
         android:textStyle="bold"
         android:layout_marginBottom="10dp"
         android:layout_marginStart="10dp" />
 
-</FrameLayout>
+</LinearLayout>
