@@ -8,7 +8,8 @@
     <color name="colorRed">#bc1313</color>
     <color name="colorGray">#858585</color>
     <color name="colorGiot">#FEEE00</color>
-    <color name="colorStrava">#C2C3C8</color>
+    <color name="colorInput">#80000000</color>
+    <color name="colorButton">#E6000000</color>
     <color name="colorRegister">#BFB300</color>
     <color name="colorLoginWith">#71621C</color>
 </resources>

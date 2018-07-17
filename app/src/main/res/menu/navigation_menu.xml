@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group>
-        <item android:title="@string/menuProfile">
+        <item android:title="@string/menuAccount">
             <menu>
                 <item
                     android:id="@+id/menu_account"
-                    android:title="@string/menuAccount"
-                    android:icon="@drawable/profile"/>
+                    android:title="@string/menuProfile"
+                    android:icon="@drawable/user"/>
                 <item
                     android:id="@+id/menu_historic"
                     android:title="@string/menuHistoric"

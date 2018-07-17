@@ -12,6 +12,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -37,12 +38,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_drawer);
 
-        /*Intent i = getIntent();
+        Intent i = getIntent();
         String username = i.getExtras().getString(EXTRA_INTENT_USERNAME);
         String email = i.getExtras().getString(EXTRA_INTENT_EMAIL);
 
         AppCompatTextView lblUser = findViewById(R.id.lblUser);
-        AppCompatTextView lblEmail = findViewById(R.id.lblEmail);*/
+        AppCompatTextView lblEmail = findViewById(R.id.lblEmail);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
-        /*Toast.makeText(this,username + " " + email, Toast.LENGTH_LONG).show();*/
+        //Toast.makeText(this,username + " " + email, Toast.LENGTH_LONG).show();
 
         /*lblUser.setText(username);
         lblEmail.setText(email);*/

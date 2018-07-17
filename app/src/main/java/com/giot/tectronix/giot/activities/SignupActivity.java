@@ -30,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private TextInputLayout layoutName, layoutSurname, layoutEmail, layoutUser, layoutPassword, layoutConfirmPassword;
     private TextInputEditText txtName, txtSurname, txtEmail, txtUser, txtPassword, txtConfirmPassword;
-    private AppCompatButton btnRegister,btnCancel;
+    private AppCompatButton btnRegister;
     private RequestQueue requestQueue;
 
     @Override
@@ -51,7 +51,6 @@ public class SignupActivity extends AppCompatActivity {
         txtPassword = findViewById(R.id.txtPassword);
         txtConfirmPassword = findViewById(R.id.txtConfirmPassword);
         btnRegister = findViewById(R.id.btnRegister);
-        btnCancel = findViewById(R.id.btnCancel);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,21 +58,6 @@ public class SignupActivity extends AppCompatActivity {
                 if (validateRegister() == 0){
                     register();
                 }
-            }
-        });
-
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
-        txtName.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                layoutName.setErrorEnabled(false);
-                return false;
             }
         });
 
@@ -202,7 +186,7 @@ public class SignupActivity extends AppCompatActivity {
 
                             Snackbar.make(btnRegister, "Registro Exitoso", Snackbar.LENGTH_LONG).show();
 
-                            finish();
+                            //finish();
                             /*Intent i = new Intent(SignupActivity.this, LoginActivity.class);
                             startActivity(i);*/
                         }

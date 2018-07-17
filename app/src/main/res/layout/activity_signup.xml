@@ -4,33 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".activities.SignupActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
+
 
 <!--*******************************************Logo Giot*****************************************-->
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="24dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/icon-giot"/>
+            android:src="@drawable/icon_giot"/>
 <!--*******************************************Logo Giot*****************************************-->
 
 <!--*******************************************Layout Name*****************************************-->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal"
-            android:layout_marginTop="40dp">
+            android:background="@drawable/layout_input"
+            android:layout_marginTop="20dp">
 
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                android:tint="@color/colorGiot"
                 android:src="@drawable/user"
                 android:layout_gravity="center"/>
 
@@ -45,6 +49,9 @@
                     android:id="@+id/txtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="@color/colorGiot"
+                    android:textColor="@color/colorGiot"
+                    android:textAlignment="center"
                     android:hint="@string/hintTxtName"/>
 
             </android.support.design.widget.TextInputLayout>
@@ -53,15 +60,18 @@
 
 <!--*******************************************Layout Surname*****************************************-->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:background="@drawable/layout_input"
+            android:layout_marginTop="8dp">
 
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/user"
+                android:tint="@color/colorGiot"
                 android:layout_gravity="center"/>
 
             <android.support.design.widget.TextInputLayout
@@ -75,6 +85,9 @@
                     android:id="@+id/txtSurname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="@color/colorGiot"
+                    android:textColor="@color/colorGiot"
+                    android:textAlignment="center"
                     android:hint="@string/hintTxtSurname"/>
 
             </android.support.design.widget.TextInputLayout>
@@ -83,15 +96,18 @@
 
 <!--*******************************************Layout E-mail*****************************************-->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:background="@drawable/layout_input"
+            android:layout_marginTop="8dp">
 
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/email"
+                android:tint="@color/colorGiot"
                 android:layout_gravity="center"/>
 
             <android.support.design.widget.TextInputLayout
@@ -105,6 +121,9 @@
                     android:id="@+id/txtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="@color/colorGiot"
+                    android:textColor="@color/colorGiot"
+                    android:textAlignment="center"
                     android:hint="@string/hintTxtEmail"/>
 
             </android.support.design.widget.TextInputLayout>
@@ -113,15 +132,18 @@
 
 <!--*******************************************Layout Username*****************************************-->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:background="@drawable/layout_input"
+            android:layout_marginTop="8dp">
 
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/user"
+                android:tint="@color/colorGiot"
                 android:layout_gravity="center"/>
 
             <android.support.design.widget.TextInputLayout
@@ -135,6 +157,9 @@
                     android:id="@+id/txtUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="@color/colorGiot"
+                    android:textColor="@color/colorGiot"
+                    android:textAlignment="center"
                     android:hint="@string/hintTxtUsername"/>
 
             </android.support.design.widget.TextInputLayout>
@@ -143,15 +168,18 @@
 
 <!--*******************************************Layout Password*****************************************-->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:background="@drawable/layout_input"
+            android:layout_marginTop="8dp">
 
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
+                android:tint="@color/colorGiot"
                 android:src="@drawable/password"/>
 
             <android.support.design.widget.TextInputLayout
@@ -166,6 +194,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
+                    android:textColorHint="@color/colorGiot"
+                    android:textColor="@color/colorGiot"
+                    android:textAlignment="center"
                     android:hint="@string/hintTxtPassword"/>
 
             </android.support.design.widget.TextInputLayout>
@@ -174,15 +205,18 @@
 
 <!--*******************************************Layout Confirm Password*****************************************-->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:background="@drawable/layout_input"
+            android:layout_marginTop="8dp">
 
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
+                android:tint="@color/colorGiot"
                 android:src="@drawable/password"/>
 
             <android.support.design.widget.TextInputLayout
@@ -197,6 +231,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
+                    android:textColorHint="@color/colorGiot"
+                    android:textColor="@color/colorGiot"
+                    android:textAlignment="center"
                     android:hint="@string/hintTxtConfirmPassword"/>
 
             </android.support.design.widget.TextInputLayout>
@@ -204,29 +241,58 @@
 <!--*******************************************Layout Confirm Password*****************************************-->
 
 <!--*******************************************Layout Buttons*****************************************-->
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnRegister"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="28dp">
-
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/btnRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:backgroundTint="@color/colorAccent"
-                android:textColor="@color/colorWhite"
-                android:text="@string/btnTxtRegister" />
-
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/btnCancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btnTxtCancel" />
-        </RelativeLayout>
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            android:background="@drawable/layout_button"
+            android:textColor="@color/colorGiot"
+            android:text="@string/btnTxtRegister" />
 <!--*******************************************Layout Buttons*****************************************-->
 
-    </LinearLayout>
+<!--********************************************Text Register****************************************-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:background="@color/colorBlack">
 
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_gravity="center_horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:textColor="@color/colorRegister"-->
+                    <!--android:text="@string/lblRegister">-->
+                <!--</TextView>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/txtGoToRegister"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginStart="8dp"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textColor="@color/colorRegister"-->
+                    <!--android:text="@string/lblGoToRegister"/>-->
+
+            <!--</LinearLayout>-->
+<!--*******************************************Icon Giot*****************************************-->
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:tint="@color/colorGiot"
+            android:src="@drawable/logo_giot" />
+<!--*******************************************Icon Giot*****************************************-->
+
+        </LinearLayout>
+    </LinearLayout>
 </ScrollView>
