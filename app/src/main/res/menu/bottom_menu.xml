@@ -6,19 +6,21 @@
         android:id="@+id/action_barcode"
         android:enabled="true"
         android:icon="@drawable/barcode"
-        android:title="@string/tabBarcode"
+        android:title="@string/menuBarcode"
         app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/action_bluetooth"
         android:enabled="true"
         android:icon="@drawable/bluetooth"
-        android:title="@string/tabBluetooth"
+        android:title="@string/menuBluetooth"
         app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/action_profile"
         android:enabled="true"
         android:icon="@drawable/user"
-        android:title="@string/tabProfile"
+        android:title="@string/menuProfile"
         app:showAsAction="ifRoom" />
 
 </menu>

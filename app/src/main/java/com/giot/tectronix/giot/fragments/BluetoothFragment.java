@@ -27,10 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.giot.tectronix.giot.R;
@@ -228,7 +225,7 @@ public class BluetoothFragment extends Fragment {
     // que tiene bluetooth el dispositivo
     private void scannearDevices() {
         // Chequeo si no se está scanneando, en ese caso, chequeo si soporta bluetooth
-        if (_scanneando == false) {
+        if (!_scanneando) {
 
             // Indicamos en pantalla que comenzamos a scanear
             Toast.makeText(getActivity(), "Scanneando dispositivos...", Toast.LENGTH_SHORT).show();
@@ -279,7 +276,7 @@ public class BluetoothFragment extends Fragment {
         // Hay que activar la búsqueda?
         if (startScan) {
             // Chequeo por las dudas que no se esté scaneando aún
-            if (_scanneando == false) {
+            if (!_scanneando) {
 
                 // Le pido al adaptador de Bluetooth que comience a buscar dispositivos LE
                 // El parámetro que recibe el método es el CallBack que nos va a llamar
@@ -332,14 +329,14 @@ public class BluetoothFragment extends Fragment {
         public void onLeScan(BluetoothDevice bluetoothDevice, int rssi, byte[] scanRecord) {
 
             // Muestro por consola la información recibida
-            Log.i(TAG, "Dispositivo Encontrado: " + bluetoothDevice.getAddress() +
-                    " Name: " + bluetoothDevice.getName() +
+            Log.i(TAG, "Dispositivo Encontrado: " + bluetoothDevice.getName() +
+                    " Address: " + bluetoothDevice.getAddress() +
                     " rssi: " + rssi +
                     " Ad: " + bytesToHex(scanRecord));
 
             // Lo agrego a la lista de dispositivos encontrados (si no fue encontrado aún)
             // Y actualizo el adapter del ListView para mostrar el nuevo dispositivo
-            if (_devices.contains(bluetoothDevice) == false) {
+            if (!_devices.contains(bluetoothDevice)) {
                 // Indico por consola que se agregó el dispositivo a la lista
                 Log.i(TAG, "Se agrega a la lista " + bluetoothDevice.getAddress());
 

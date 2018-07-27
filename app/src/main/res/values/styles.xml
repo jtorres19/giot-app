@@ -8,4 +8,48 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+<!--****************************************** Input Layout ****************************************************-->
+    <style name="Custom.TextInputLayout" parent="Base.Widget.MaterialComponents.TextInputLayout">
+        <item name="android:background">@drawable/layout_input</item>
+
+        <item name="colorAccent">@color/colorGiot</item>
+        <item name="colorControlNormal">@color/colorBlack</item>
+        <item name="colorControlActivated">@color/colorBlack</item>
+        <item name="colorError">@color/colorRed</item>
+    </style>
+<!--****************************************** Input Layout ****************************************************-->
+
+<!--****************************************** Input Layout with icons ****************************************************-->
+    <style name="Custom.TextInputLayoutIcons" parent="Base.Widget.MaterialComponents.TextInputLayout">
+        <item name="colorAccent">@color/colorGiot</item>
+        <item name="colorControlNormal">@color/colorBlack</item>
+        <item name="colorControlActivated">@color/colorBlack</item>
+        <item name="colorError">@color/colorRed</item>
+    </style>
+<!--****************************************** Input Layout with icons ****************************************************-->
+
+
+<!--****************************************** Edit Text Input ****************************************************-->
+    <style name="Custom.TextInputEditText" parent="Base.Widget.MaterialComponents.TextInputLayout">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textColorHint">@color/colorGiot</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">20sp</item>
+
+        <item name="colorAccent">@color/colorGiot</item>
+        <item name="colorControlNormal">@color/colorBlack</item>
+        <item name="colorControlActivated">@color/colorBlack</item>
+        <item name="colorError">@color/colorRed</item>
+    </style>
+<!--****************************************** Edit Text Input ****************************************************-->
+
+<!--****************************************** Button ****************************************************-->
+    <style name="Custom.AppCompatButton" parent="Base.Widget.AppCompat.Button">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+<!--****************************************** Button ****************************************************-->
+
 </resources>

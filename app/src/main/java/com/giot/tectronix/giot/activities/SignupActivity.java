@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.android.volley.Cache;
 import com.android.volley.Network;
+import com.android.volley.NetworkError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -163,7 +164,7 @@ public class SignupActivity extends AppCompatActivity {
             body.put("password", password);
         }
         catch (Exception ex) {
-            Snackbar.make(btnRegister, "Error en el usuario", Snackbar.LENGTH_LONG).show();
+            Snackbar.make(btnRegister, "Error en el Web Service, intente de nuevo más tarde", Snackbar.LENGTH_LONG).show();
         }
 
         // Genero el request

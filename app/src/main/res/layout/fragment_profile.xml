@@ -3,11 +3,284 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ProfileFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ProfileFragment"
+    android:background="@drawable/background">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </RelativeLayout>
+<!--************************************ Layout General ******************************************-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+<!--************************************ Image View ******************************************-->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                app:civ_border_width="4dp"
+                app:civ_border_color="@color/colorInput"
+                android:layout_gravity="center"
+                android:src="@drawable/user"
+                android:tint="@color/colorWhite"/>
+<!--************************************ Image View ******************************************-->
+
+
+<!--************************************ Label Change Picture ******************************************-->
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/lblChangePhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="@string/lblChangePicture"
+                android:textSize="16sp"/>
+<!--************************************ Label Change Picture ******************************************-->
+
+
+<!--************************************ Layout Input Names ******************************************-->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/layoutName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/layout_input"
+                android:theme="@style/Custom.TextInputLayoutIcons">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hintTxtName"
+                    android:inputType="text"
+                    android:theme="@style/Custom.TextInputEditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+<!--************************************ Layout Input Names ******************************************-->
+
+<!--************************************ Layout Input Surnames ******************************************-->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/layoutSurname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/layout_input"
+                android:theme="@style/Custom.TextInputLayoutIcons">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtSurname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hintTxtSurname"
+                    android:inputType="text"
+                    android:theme="@style/Custom.TextInputEditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+<!--************************************ Layout Input Surnames ******************************************-->
+
+
+<!--*********************************Layout Label Birthday **************************-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/lblBirthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/lblBirthdate"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorBlack"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtBirthday"
+                    android:layout_width="160dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_toEndOf="@+id/lblBirthday"
+                    android:inputType="date"
+                    android:paddingTop="12dp"
+                    android:background="@drawable/layout_input"
+                    android:theme="@style/Custom.TextInputEditText"/>
+
+            </RelativeLayout>
+<!--*********************************Layout Label Bithday **************************-->
+
+<!--*********************************Layout Label Height **************************-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/lblHeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="108dp"
+                        android:layout_centerVertical="true"
+                        android:text="@string/lblHeight"
+                        android:textSize="16sp"
+                        android:textColor="@color/colorBlack"/>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/layoutHeight"
+                        android:layout_width="112dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_toEndOf="@+id/lblHeight"
+                        android:background="@drawable/layout_input"
+                        android:theme="@style/Custom.TextInputLayoutIcons">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/txtHeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:theme="@style/Custom.TextInputEditText"/>
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_toEndOf="@+id/layoutHeight"
+                        android:layout_centerVertical="true"
+                        android:text="@string/lblCm"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"/>
+
+                </RelativeLayout>
+<!--*********************************Layout Label Height **************************-->
+
+<!--*********************************Layout Label Weight **************************-->
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/lblWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="116dp"
+                        android:layout_centerVertical="true"
+                        android:text="@string/lblWeight"
+                        android:textSize="16sp"
+                        android:textColor="@color/colorBlack"/>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/layoutWeight"
+                        android:layout_width="112dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_toEndOf="@+id/lblWeight"
+                        android:background="@drawable/layout_input"
+                        android:theme="@style/Custom.TextInputLayoutIcons">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/txtWeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:theme="@style/Custom.TextInputEditText"/>
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/layoutWeight"
+                        android:text="@string/lblKg"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"/>
+
+                </RelativeLayout>
+<!--*********************************Layout Label Weight **************************-->
+
+
+<!--*********************************Layout Radio Buttons**************************-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="100dp"
+                    android:text="@string/lblGender"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorBlack"/>
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/rbFemale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/lblFemale" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/rbMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/lblMale"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+<!--*********************************Layout Radio Buttons**************************-->
+
+<!--*********************************Layout Buttons**************************-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnCancel"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnTxtCancel"
+                    android:background="@drawable/layout_button"
+                    android:theme="@style/Custom.AppCompatButton"/>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnSave"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:text="@string/btnTxtSave"
+                    android:background="@drawable/layout_button"
+                    android:theme="@style/Custom.AppCompatButton"/>
+
+            </LinearLayout>
+<!--************************************ Layout Buttons ******************************************-->
+
+        </LinearLayout>
+<!--************************************ Layout General ******************************************-->
+    </ScrollView>
 </FrameLayout>

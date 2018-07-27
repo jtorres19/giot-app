@@ -27,7 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:background="@drawable/layout_input">
+            android:background="@drawable/layout_input"
+            android:elevation="8dp">
 
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="32dp"
@@ -40,17 +41,15 @@
                 android:id="@+id/layoutUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_gravity="center_horizontal">
+                android:theme="@style/Custom.TextInputLayoutIcons">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/txtUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorGiot"
-                    android:textColorHint="@color/colorGiot"
-                    android:hint="@string/hintTxtLogin"/>
+                    android:hint="@string/hintTxtLogin"
+                    android:inputType="text"
+                    android:theme="@style/Custom.TextInputEditText"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -63,7 +62,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            android:background="@drawable/layout_input">
+            android:background="@drawable/layout_input"
+            android:elevation="8dp">
 
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="32dp"
@@ -76,17 +76,16 @@
                 android:id="@+id/layoutPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                app:passwordToggleEnabled="true">
+                app:passwordToggleEnabled="true"
+                android:theme="@style/Custom.TextInputLayoutIcons">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/txtPassword"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hintTxtPassword"
                     android:inputType="textPassword"
-                    android:textAlignment="center"
-                    android:textColorHint="@color/colorGiot"
-                    android:hint="@string/hintTxtPassword"/>
+                    android:theme="@style/Custom.TextInputEditText"/>
 
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
@@ -99,12 +98,10 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textColor="@color/colorGiot"
             android:background="@drawable/layout_button"
             android:layout_marginTop="24dp"
-            app:cornerRadius="50dp"
-            android:text="@string/btnTxtLogin" />
+            android:text="@string/btnTxtLogin"
+            android:theme="@style/Custom.AppCompatButton"/>
 <!--********************************************Button Login****************************************-->
 
 
@@ -172,15 +169,15 @@
                 android:layout_marginTop="8dp"
                 android:layout_gravity="center_horizontal">
 
-                <TextView
+                <android.support.v7.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="@color/colorRegister"
                     android:text="@string/lblRegister">
-                </TextView>
+                </android.support.v7.widget.AppCompatTextView>
 
-                <TextView
+                <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/txtGoToRegister"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -195,7 +192,7 @@
 
 <!--*******************************************Icon Giot*****************************************-->
             <android.support.v7.widget.AppCompatImageView
-                android:layout_width="160dp"
+                android:layout_width="140dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center_horizontal"
                 android:tint="@color/colorGiot"

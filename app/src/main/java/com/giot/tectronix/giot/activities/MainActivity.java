@@ -17,15 +17,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.android.volley.Cache;
+import com.android.volley.Network;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.toolbox.HurlStack;
+import com.giot.tectronix.giot.GiotApp;
 import com.giot.tectronix.giot.R;
 import com.giot.tectronix.giot.fragments.BarcodeFragment;
 import com.giot.tectronix.giot.fragments.BluetoothFragment;
 import com.giot.tectronix.giot.fragments.ProfileFragment;
+import com.giot.tectronix.giot.model.User;
 
 public class MainActivity extends AppCompatActivity {
-
-    public final static String EXTRA_INTENT_USERNAME = "username";
-    public final static String EXTRA_INTENT_EMAIL = "email";
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -38,28 +43,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_drawer);
 
-        Intent i = getIntent();
-        String username = i.getExtras().getString(EXTRA_INTENT_USERNAME);
-        String email = i.getExtras().getString(EXTRA_INTENT_EMAIL);
-
         AppCompatTextView lblUser = findViewById(R.id.lblUser);
         AppCompatTextView lblEmail = findViewById(R.id.lblEmail);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.nav_menu);
+        //getSupportActionBar().setIcon(getDrawable(R.drawable.logo_giot));
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
         bottomNavigationView = findViewById(R.id.tab_bottom);
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout, toolbar,R.string.openDrawer,R.string.closeDrawer);
-        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-
-        //Toast.makeText(this,username + " " + email, Toast.LENGTH_LONG).show();
-
-        /*lblUser.setText(username);
-        lblEmail.setText(email);*/
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -67,19 +65,19 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
                     case R.id.menu_barcode:
                         navigationView.setCheckedItem(menuItem.getItemId());
-                        bottomNavigationView.setSelectedItemId(menuItem.getItemId());
+                        bottomNavigationView.setSelectedItemId(R.id.action_barcode);
                         cambiarFragment(new BarcodeFragment(),menuItem.getTitle().toString());
                         break;
 
                     case R.id.menu_bluetooth:
                         navigationView.setCheckedItem(menuItem.getItemId());
-                        bottomNavigationView.setSelectedItemId(menuItem.getItemId());
+                        bottomNavigationView.setSelectedItemId(R.id.action_bluetooth);
                         cambiarFragment(new BluetoothFragment(),menuItem.getTitle().toString());
                         break;
 
                     case R.id.menu_account:
                         navigationView.setCheckedItem(menuItem.getItemId());
-                        bottomNavigationView.setSelectedItemId(menuItem.getItemId());
+                        bottomNavigationView.setSelectedItemId(R.id.action_profile);
                         cambiarFragment(new ProfileFragment(),menuItem.getTitle().toString());
                         break;
 
@@ -119,6 +117,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        cambiarFragment(new BluetoothFragment(),getTitle().toString());
+
     }
 
     @Override
@@ -147,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
         }else {
             //super.onBackPressed();
 
-            //option 3
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -167,9 +167,6 @@ public class MainActivity extends AppCompatActivity {
                 cont = 0;
             }
         }.start();
-
-
     }
-
 
 }

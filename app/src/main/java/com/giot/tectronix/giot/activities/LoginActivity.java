@@ -1,23 +1,28 @@
 package com.giot.tectronix.giot.activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.design.button.MaterialButton;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Cache;
 import com.android.volley.Network;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
@@ -25,20 +30,18 @@ import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.giot.tectronix.giot.GiotApp;
 import com.giot.tectronix.giot.R;
-import com.giot.tectronix.giot.fragments.ProfileFragment;
 import com.giot.tectronix.giot.model.User;
 
 import org.json.JSONObject;
 
-import static com.giot.tectronix.giot.activities.MainActivity.EXTRA_INTENT_EMAIL;
-import static com.giot.tectronix.giot.activities.MainActivity.EXTRA_INTENT_USERNAME;
-
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity{
 
     private TextInputLayout layoutUser,layoutPassword;
     private TextInputEditText txtUser,txtPassword;
+    private AppCompatTextView txtGoToRegister;
     private AppCompatButton btnLogin;
     private RequestQueue requestQueue;
+    private String user,password,mensaje;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         layoutPassword = findViewById(R.id.layoutPassword);
         btnLogin = findViewById(R.id.btnLogin);
         txtUser = findViewById(R.id.txtUser);
-        TextView txtGoToRegister = findViewById(R.id.txtGoToRegister);
+        txtGoToRegister = findViewById(R.id.txtGoToRegister);
         txtPassword = findViewById(R.id.txtPassword);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -101,8 +104,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private int validateLogin() {
         int sw = 0;
-        String user = txtUser.getText().toString().trim().toLowerCase();
-        String password = txtPassword.getText().toString().trim();
+        user = txtUser.getText().toString().trim().toLowerCase();
+        password = txtPassword.getText().toString().trim();
 
         if(user.isEmpty()){
             layoutUser.setError("Debe ingresar USUARIO o E-MAIL");
@@ -116,8 +119,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login() {
-        String user = txtUser.getText().toString().trim().toLowerCase();
-        String password = txtPassword.getText().toString().trim();
+        user = txtUser.getText().toString().trim().toLowerCase();
+        password = txtPassword.getText().toString().trim();
 
         String url = "http://giot.cl/WebService/login.php?username=" + user + "&password=" + password;
         JSONObject body = new JSONObject();
@@ -126,7 +129,7 @@ public class LoginActivity extends AppCompatActivity {
             body.put("password", password);
         }
         catch (Exception ex) {
-            Snackbar.make(btnLogin, "Error en el usuario", Snackbar.LENGTH_LONG).show();
+            Snackbar.make(btnLogin, "Error en el Web Service, intente de nuevo más tarde", Snackbar.LENGTH_LONG).show();
         }
 
         // Genero el request
@@ -148,13 +151,10 @@ public class LoginActivity extends AppCompatActivity {
                             app.user = user;
 
                             Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                            i.putExtra(EXTRA_INTENT_USERNAME,user.username);
-                            i.putExtra(EXTRA_INTENT_EMAIL,user.email);
-
                             startActivity(i);
                         }
                         else {
-                            String mensaje = response.optString("message", "Error desconocido");
+                            mensaje = response.optString("message", "Error desconocido");
                             Snackbar.make(btnLogin, mensaje, Snackbar.LENGTH_LONG).show();
                         }
                     }
@@ -162,7 +162,20 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Snackbar.make(btnLogin, error.toString(), Snackbar.LENGTH_LONG).show();
+                        if (error instanceof NetworkError) {
+                            Snackbar.make(btnLogin, error.toString(), Snackbar.LENGTH_LONG).show();
+                        } else if (error instanceof ServerError) {
+                            Snackbar.make(btnLogin, error.toString(), Snackbar.LENGTH_LONG).show();
+                        } else if (error instanceof AuthFailureError) {
+                            Snackbar.make(btnLogin, error.toString(), Snackbar.LENGTH_LONG).show();
+                        } else if (error instanceof ParseError) {
+                            Snackbar.make(btnLogin, error.toString(), Snackbar.LENGTH_LONG).show();
+                        } else if (error instanceof NoConnectionError) {
+                            Snackbar.make(btnLogin, "No tiene conexion a internet, verifique su estado", Snackbar.LENGTH_LONG).show();
+                        } else if (error instanceof TimeoutError) {
+                            Snackbar.make(btnLogin, "Se perdió la conexión, verifique su internet", Snackbar.LENGTH_LONG).show();
+                        }
+                        Snackbar.make(btnLogin, "Surgió un problema imprevisto, intente de nuevo mas tarde", Snackbar.LENGTH_LONG).show();
                     }
                 });
 

@@ -1,12 +1,9 @@
 <resources>
 
     <string name="app_name">Giot</string>
-    <string name="tabBluetooth">Vincular</string>
-    <string name="tabBarcode">Escanear QR</string>
-    <string name="tabProfile">Mi Perfil</string>
     <string name="menuProfile">Mi Perfil</string>
     <string name="menuBarcode">Escanear QR</string>
-    <string name="menuBluetooth">Vincular Dispositivo</string>
+    <string name="menuBluetooth">Vincular</string>
     <string name="menuHistoric">Mi Registro</string>
     <string name="menuAccount">Mi Cuenta</string>
     <string name="menuAbout">Acerca de GIOT</string>
@@ -23,11 +20,21 @@
     <string name="btnTxtCancel">Cancelar</string>
     <string name="btnTxtScan">Escanear</string>
     <string name="btnTxtDisconnect">Desconectar</string>
+    <string name="btnTxtSave">Guardar</string>
     <string name="lblListDevices">Lista de dispositivos</string>
     <string name="lblRecoverPassword">¿Olvidó su contraseña?</string>
     <string name="lblRegister">¿NO TIENES CUENTA?</string>
     <string name="lblGoToRegister">REGÍSTRATE</string>
     <string name="lblLogin">LOGIN WITH</string>
+    <string name="lblBirthdate">Fecha de nacimiento: </string>
+    <string name="lblHeight">Altura: </string>
+    <string name="lblWeight">Peso: </string>
+    <string name="lblGender">Género: </string>
+    <string name="lblCm">Cm</string>
+    <string name="lblKg">Kg</string>
+    <string name="lblFemale">Femenino</string>
+    <string name="lblMale">Masculino</string>
+    <string name="lblChangePicture">Cambiar Foto</string>
     <string name="openDrawer">Abrir Menú</string>
     <string name="closeDrawer">Cerrar Menú</string>
     <string name="no_vision_libraries">No están cargadas las librerías de Google Vision aún, pruebe en instantes</string>
