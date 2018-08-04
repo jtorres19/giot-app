@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }else if (cont == 0){
-            Toast.makeText(getApplicationContext(),"Presione de nuevo para salir",Snackbar.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Presione de nuevo para salir",Toast.LENGTH_LONG).show();
             cont++;
         }else {
             //super.onBackPressed();
